@@ -4,9 +4,12 @@ import java.time.Duration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import static io.github.bonigarcia.wdm.config.DriverManagerType.CHROME;
 
 
 public class AutomateCouponCode {
@@ -24,7 +27,7 @@ public class AutomateCouponCode {
         int couponFailed = 0;
         int totalCouponCodes = COUPON_CODES.length;
 
-        System.setProperty("webdriver.chrome.driver", "/Users/User/Documents/chromedriver.exe");
+        WebDriverManager.getInstance(CHROME).setup();
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://couponview.netmarble.com/coupon/sk2gb/1461");
